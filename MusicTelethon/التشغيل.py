@@ -19,7 +19,7 @@ from pytgcalls.types.input_stream.quality import HighQualityAudio,    HighQualit
 from youtubesearchpython import VideosSearch
 from config import HNDLR, bot, call_py
 from MusicTelethon.helpers.queues import QUEUE, add_to_queue, get_queue, clear_queue
-from MusicTelethon.helpers.decorators import authorized_users_only
+from MusicTelethon.helpers.decorators import R_OD_I_BOT
 from MusicTelethon.helpers.handlers import skip_current_song, skip_item
 from pyrogram.errors import FloodWait, MessageNotModified
 from youtubesearchpython import SearchVideos
@@ -90,7 +90,7 @@ async def play(client, m: Message):
                 await huehue.delete()
                 # await m.reply_to_message.delete()
                 await m.reply_photo(
-                    photo="https://telegra.ph/file/40c0ab31719a780e37b5c.jpg",
+                    photo="https://telegra.ph/file/7ee1144fb6895b2e6f38f.jpg",
                     caption=f"""
 **🏷️ العنوان : [{songname}]({link})
 💬 ايدي المحادثه : {chat_id}
@@ -101,7 +101,7 @@ async def play(client, m: Message):
                 add_to_queue(chat_id, songname, dl, link, "Audio", 0)
                 await huehue.delete()
                 await m.reply_photo(
-                    photo="https://telegra.ph/file/40c0ab31719a780e37b5c.jpg",
+                    photo="https://telegra.ph/file/7ee1144fb6895b2e6f38f.jpg",
                     caption=f"""
 **🏷️ العنوان : [{songname}]({link})
 💬 ايدي المحادثه : {chat_id}
@@ -195,7 +195,7 @@ async def vplay(client, m: Message):
                 await huehue.delete()
                 # await m.reply_to_message.delete()
                 await m.reply_photo(
-                    photo="https://telegra.ph/file/40c0ab31719a780e37b5c.jpg",
+                    photo="https://telegra.ph/file/7ee1144fb6895b2e6f38f.jpg",
                     caption=f"""
 **🏷️ العنوان : [{songname}]({link})
 💬 ايدي المحادثه : {chat_id}
@@ -218,7 +218,7 @@ async def vplay(client, m: Message):
                 await huehue.delete()
                 # await m.reply_to_message.delete()
                 await m.reply_photo(
-                    photo="https://telegra.ph/file/40c0ab31719a780e37b5c.jpg",
+                    photo="https://telegra.ph/file/7ee1144fb6895b2e6f38f.jpg",
                     caption=f"""
 **🏷️ العنوان : [{songname}]({link})
 💬 ايدي المحادثه : {chat_id}
@@ -304,7 +304,7 @@ async def playfrom(client, m: Message):
                     await call_py.join_group_call(                        chat_id,                        AudioPiped(location),                        stream_type=StreamType().pulse_stream,                    )
                     add_to_queue(chat_id, songname, location, link, "Audio", 0)
                     await m.reply_photo(
-                        photo="https://telegra.ph/file/40c0ab31719a780e37b5c.jpg",
+                        photo="https://telegra.ph/file/7ee1144fb6895b2e6f38f.jpg",
                         caption=f"""
 **▶ ابدأ تشغيل الأغاني من {chat}
 🏷️ العنوان : [{songname}]({link})
@@ -337,7 +337,7 @@ async def playlist(client, m: Message):
     else:
         await m.reply("**❌ لايوجد هناك تشغيل تالي**")
 @Client.on_message(filters.command(["التالي"], prefixes=f"{HNDLR}"))
-@authorized_users_only
+@R_OD_I_BOT
 async def skip(client, m: Message):
     await m.delete()
     chat_id = m.chat.id
@@ -368,7 +368,7 @@ async def skip(client, m: Message):
 
 
 @Client.on_message(filters.command(["انهاء", "ايقاف"], prefixes=f"{HNDLR}"))
-@authorized_users_only
+@R_OD_I_BOT
 async def stop(client, m: Message):
     await m.delete()
     chat_id = m.chat.id
@@ -382,7 +382,7 @@ async def stop(client, m: Message):
     else:
         await m.reply("**❌ لايوجد هناك اغنيه شغاله !**")
 @Client.on_message(filters.command(["استئناف"], prefixes=f"{HNDLR}"))
-@authorized_users_only
+@R_OD_I_BOT
 async def pause(client, m: Message):
     await m.delete()
     chat_id = m.chat.id
@@ -395,7 +395,7 @@ async def pause(client, m: Message):
     else:
         await m.reply("** ❌ لايوجد اغنيه مشتغله !**") 
 @Client.on_message(filters.command(["ايقاف_الاستئناف"], prefixes=f"{HNDLR}"))
-@authorized_users_only
+@R_OD_I_BOT
 async def resume(client, m: Message):
     await m.delete()
     chat_id = m.chat.id
