@@ -19,7 +19,7 @@ from pytgcalls.types.input_stream.quality import HighQualityAudio,    HighQualit
 from youtubesearchpython import VideosSearch
 from config import HNDLR, bot, call_py
 from MusicTelethon.helpers.queues import QUEUE, add_to_queue, get_queue, clear_queue
-from MusicTelethon.helpers.decorators import R_OD_I_BOT
+from MusicTelethon.helpers.decorators import authorized_users_only
 from MusicTelethon.helpers.handlers import skip_current_song, skip_item
 from pyrogram.errors import FloodWait, MessageNotModified
 from youtubesearchpython import SearchVideos
@@ -337,7 +337,7 @@ async def playlist(client, m: Message):
     else:
         await m.reply("**❌ لايوجد هناك تشغيل تالي**")
 @Client.on_message(filters.command(["التالي"], prefixes=f"{HNDLR}"))
-@R_OD_I_BOT
+@authorized_users_only
 async def skip(client, m: Message):
     await m.delete()
     chat_id = m.chat.id
@@ -368,7 +368,7 @@ async def skip(client, m: Message):
 
 
 @Client.on_message(filters.command(["انهاء", "ايقاف"], prefixes=f"{HNDLR}"))
-@R_OD_I_BOT
+@authorized_users_only
 async def stop(client, m: Message):
     await m.delete()
     chat_id = m.chat.id
@@ -382,7 +382,7 @@ async def stop(client, m: Message):
     else:
         await m.reply("**❌ لايوجد هناك اغنيه شغاله !**")
 @Client.on_message(filters.command(["استئناف"], prefixes=f"{HNDLR}"))
-@R_OD_I_BOT
+@authorized_users_only
 async def pause(client, m: Message):
     await m.delete()
     chat_id = m.chat.id
@@ -395,7 +395,7 @@ async def pause(client, m: Message):
     else:
         await m.reply("** ❌ لايوجد اغنيه مشتغله !**") 
 @Client.on_message(filters.command(["ايقاف_الاستئناف"], prefixes=f"{HNDLR}"))
-@R_OD_I_BOT
+@authorized_users_only
 async def resume(client, m: Message):
     await m.delete()
     chat_id = m.chat.id
