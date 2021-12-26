@@ -60,19 +60,6 @@ async def help(client, m: Message):
 ———————×———————
 🛠 """
     await m.reply(HELP)
-    Client.on_message(filters.command(سورس)
-async def help(client, m: Message):
-    await m.delete()
-    HELP = f"""
-<b>👋  اهلا {m.from_user.mention}!
-
-𝑹𝑶𝑫𝑰𝑵𝑨 𝑴𝑼𝑺𝑰𝑪 🍧 🔊
-
-🎶 هذا ميوزك رودينا @R_O_D_I_bo
-
-المبرمج @Sameer_Essam
-🛠 """
-    await m.reply(HELP)
 @Client.on_message(filters.command(["سورس"], prefixes=f"{HNDLR}"))
 async def repo(client, m: Message):
     await m.delete()
